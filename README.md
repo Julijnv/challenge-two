@@ -96,7 +96,6 @@ To install the required dependencies, run the following command in the root dire
 - Replace `your_project_id` with your Google Cloud project ID.  
     For example:
 
-        ```python
         table_id = "my-project-id.paper_summarize.papers"
         
 
@@ -120,7 +119,7 @@ On Windows(CMD):
 
     set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
-## Run the Application
+## Running the Application
 
 To execute the application, run the following command:
 
