@@ -62,7 +62,6 @@ Ensure you have the following installed and configured on your system:
    git clone https://github.com/Julijnv/challenge-two.git
    cd challenge-two
 
-
 ## Install Dependencies
 
 To install the required dependencies, run the following command in the root directory of the project:
@@ -117,12 +116,10 @@ To install the required dependencies, run the following command in the root dire
 
 On Linux/Mac:  
 
-    ```bash
     export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
 
 On Windows(CMD):  
 
-    ```bash
     set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
 ## Run the Application
