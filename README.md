@@ -95,8 +95,8 @@ Ensure you have the following installed and configured on your system:
         
     - Replace `your_project_id` with your Google Cloud project ID.  
         For example:  
-        ```python
-        table_id = "my-project-id.paper_summarize.papers"
+            ```python
+            table_id = "my-project-id.paper_summarize.papers"
         
 
     4. **Create a Service Account Key**  
@@ -112,12 +112,12 @@ Ensure you have the following installed and configured on your system:
     - Use the downloaded JSON key file to set the environment variable:
 
     On Linux/Mac:  
-    ```bash
-    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
+        ```bash
+        export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
 
-        On Windows(CMD):  
-    ```bash
-    set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
+    On Windows(CMD):  
+        ```bash
+        set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
 ## Run the Application
 
