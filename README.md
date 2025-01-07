@@ -65,10 +65,12 @@ Ensure you have the following installed and configured on your system:
 
 ## Install Dependencies
 
-    To install the required dependencies, run the following command in the root directory of the project:
-        ```bash
-        pip install -e .
+To install the required dependencies, run the following command in the root directory of the project:
+
+    ```bash
+    pip install -e .
          
+
 ## Set up Google Cloud Credentials
 
 1. **Install the Google Cloud SDK**  
@@ -77,9 +79,11 @@ Ensure you have the following installed and configured on your system:
 
 2. **Initialize Google Cloud**  
 - Run the following command to initialize Google Cloud:  
+
     ```bash
     gcloud init
         
+
 - This command will guide you through:  
 - Logging in with your Google account.  
 - Selecting the appropriate Google Cloud project.
@@ -87,11 +91,14 @@ Ensure you have the following installed and configured on your system:
 3. **Update the Project in Your Code**  
 - Open the `main.py` file in the `src` directory.
 - Locate the line where the BigQuery table is defined:
+
     ```python
     table_id = "your_project_id.your_dataset_id.your_table_name"
         
+
 - Replace `your_project_id` with your Google Cloud project ID.  
-    For example:  
+    For example:
+
         ```python
         table_id = "my-project-id.paper_summarize.papers"
         
@@ -109,16 +116,19 @@ Ensure you have the following installed and configured on your system:
 - Use the downloaded JSON key file to set the environment variable:
 
 On Linux/Mac:  
+
     ```bash
     export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
 
 On Windows(CMD):  
+
     ```bash
     set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
 ## Run the Application
 
 To execute the application, run the following command:
+
     ```bash
     python src/main.py
      
