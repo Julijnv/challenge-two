@@ -21,7 +21,6 @@
 ## Description
 
 This project implements a robust pipeline designed to process research papers in PDF format. The pipeline performs the following tasks:
-
 1. **Ingests** a research paper in PDF format.
 2. **Extracts** raw text and metadata from the PDF.
 3. **Processes** the content using a Language Model (LLM) to generate:
@@ -51,7 +50,7 @@ Ensure you have the following installed and configured on your system:
 - **Python 3.9+**
 - **pip** (Python package installer)
 - **Google Cloud SDK**: [Installation Guide](https://cloud.google.com/sdk/docs/install)
-- A **Google Cloud Service Account Key** with permissions for BigQuery
+- A **Google Cloud Service Account**
 
 ### Clone the Repository
 
@@ -83,13 +82,14 @@ To install the required dependencies, run the following command in the root dire
         
 
 - This command will guide you through:  
-- Logging in with your Google account.  
-- Selecting the appropriate Google Cloud project.
+    - Logging in with your Google account.  
+    - Selecting the appropriate Google Cloud project.
 
 3. **Update the Project in Your Code**  
 - Open the `main.py` file in the `src` directory.
 - Locate the line where the BigQuery table is defined:
 
+    ```bash
     table_id = "your_project_id.your_dataset_id.your_table_name"
         
 
@@ -109,21 +109,21 @@ To install the required dependencies, run the following command in the root dire
     - Add a new key in JSON format and download the file.  
 
 5. **Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable**  
-- Use the downloaded JSON key file to set the environment variable:
+Use the downloaded JSON key file to set the environment variable:
 
-On Linux/Mac:  
+    On Linux/Mac:  
 
-    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
+        export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
 
-On Windows(CMD):  
+    On Windows(CMD):  
 
-    set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
+        set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
 ## Running the Application
 
 To execute the application, run the following command:
 
-    python src/main.py
+    python3 src/main.py
      
 ## Limitations and Known Issues
 ### Prototype Limitations
