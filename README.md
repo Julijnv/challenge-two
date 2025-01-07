@@ -14,9 +14,7 @@
   - [Set Up Google Cloud Credentials](#set-up-google-cloud-credentials)
 - [Running the Application](#running-the-application)
 - [Limitations and Known Issues](#limitations-and-known-issues)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+
 
 ---
 
@@ -68,7 +66,6 @@ Ensure you have the following installed and configured on your system:
 ## Install Dependencies
 
     To install the required dependencies, run the following command in the root directory of the project:
-
         ```bash
         pip install -e .
          
@@ -122,7 +119,6 @@ On Windows(CMD):
 ## Run the Application
 
 To execute the application, run the following command:
-
     ```bash
     python src/main.py
      
