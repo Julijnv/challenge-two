@@ -74,54 +74,54 @@ Ensure you have the following installed and configured on your system:
          
 ## Set up Google Cloud Credentials
 
-    1. **Install the Google Cloud SDK**  
-    - Download and install the Google Cloud SDK from the official page:  
+1. **Install the Google Cloud SDK**  
+- Download and install the Google Cloud SDK from the official page:  
         [Google Cloud SDK Documentation](https://cloud.google.com/sdk/docs/install)
 
-    2. **Initialize Google Cloud**  
-    - Run the following command to initialize Google Cloud:  
-        ```bash
-        gcloud init
+2. **Initialize Google Cloud**  
+- Run the following command to initialize Google Cloud:  
+    ```bash
+    gcloud init
         
-    - This command will guide you through:  
-        - Logging in with your Google account.  
-        - Selecting the appropriate Google Cloud project.
+- This command will guide you through:  
+- Logging in with your Google account.  
+- Selecting the appropriate Google Cloud project.
 
-    3. **Update the Project in Your Code**  
-    - Open the `main.py` file in the `src` directory.
-    - Locate the line where the BigQuery table is defined:
+3. **Update the Project in Your Code**  
+- Open the `main.py` file in the `src` directory.
+- Locate the line where the BigQuery table is defined:
+    ```python
+    table_id = "your_project_id.your_dataset_id.your_table_name"
+        
+- Replace `your_project_id` with your Google Cloud project ID.  
+    For example:  
         ```python
-        table_id = "your_project_id.your_dataset_id.your_table_name"
-        
-    - Replace `your_project_id` with your Google Cloud project ID.  
-        For example:  
-            ```python
-            table_id = "my-project-id.paper_summarize.papers"
+        table_id = "my-project-id.paper_summarize.papers"
         
 
-    4. **Create a Service Account Key**  
-    - Go to the [Google Cloud Console](https://console.cloud.google.com/).  
-    - Navigate to **IAM & Admin > Service Accounts**.  
-    - Select your project, click **Create Service Account**, and follow these steps:  
-        - Provide a name for the service account.  
-        - Assign it the role **BigQuery Admin**.  
-        - Click **Done** and then **Manage Keys**.  
-        - Add a new key in JSON format and download the file.  
+4. **Create a Service Account Key**  
+- Go to the [Google Cloud Console](https://console.cloud.google.com/).  
+- Navigate to **IAM & Admin > Service Accounts**.  
+- Select your project, click **Create Service Account**, and follow these steps:  
+    - Provide a name for the service account.  
+    - Assign it the role **BigQuery Admin**.  
+    - Click **Done** and then **Manage Keys**.  
+    - Add a new key in JSON format and download the file.  
 
-    5. **Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable**  
-    - Use the downloaded JSON key file to set the environment variable:
+5. **Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable**  
+- Use the downloaded JSON key file to set the environment variable:
 
-    On Linux/Mac:  
-        ```bash
-        export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
+On Linux/Mac:  
+    ```bash
+    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"
 
-    On Windows(CMD):  
-        ```bash
-        set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
+On Windows(CMD):  
+    ```bash
+    set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\service_account.json"
 
 ## Run the Application
 
-    To execute the application, run the following command:
+To execute the application, run the following command:
 
     ```bash
     python src/main.py
@@ -129,7 +129,7 @@ Ensure you have the following installed and configured on your system:
 ## Limitations and Known Issues
 ### Prototype Limitations
 
-    The language model (LLM) used is not fine-tuned for academic papers. As a result:
+The language model (LLM) used is not fine-tuned for academic papers. As a result:
     - Metadata (e.g., title, authors, and publication date) may be incomplete or inaccurate.
     - Summaries and extracted findings may not fully capture the essence of the paper.
 
