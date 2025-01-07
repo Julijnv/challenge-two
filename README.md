@@ -129,7 +129,6 @@ On Windows(CMD):
 
 To execute the application, run the following command:
 
-    ```bash
     python src/main.py
      
 ## Limitations and Known Issues
