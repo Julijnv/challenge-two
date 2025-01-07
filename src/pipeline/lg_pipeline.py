@@ -162,9 +162,9 @@ def run_pipeline_on_pdf(pdf_path: str, extract_text_func) -> dict:
     return final_data
 
 if __name__ == "__main__":
-    from pdf_utils.extract import extract_text_from_pdf
+    from src.pdf_utils.extract import extract_text_from_pdf
 
     # Example path
-    pdf_path = r"C:\Users\jnv77\Documents\Astrafy\challenge-two\papers\paper1.pdf"
+    pdf_path = "C:/Users/julio/Documents/challenge/challenge-two/papers/paper1.pdf"
     final_data = run_pipeline_on_pdf(pdf_path, extract_text_from_pdf)
     print("\nPipeline Output:\n", final_data)
