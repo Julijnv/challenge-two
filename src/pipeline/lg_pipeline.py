@@ -3,20 +3,17 @@ import re
 import multiprocessing
 import unicodedata
 
-# Disable Hugging Face symlink warnings on Windows
 os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 
 from transformers import pipeline, logging, AutoTokenizer
 logging.set_verbosity_error()
 
-# We'll load the tokenizer for DistilBart to chunk by tokens
 tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
 
 def clean_text(text: str) -> str:
     """
     Removes or normalizes unusual Unicode characters that can break tokenization.
     """
-    # Example: strip combining chars, limit to BMP plane, etc.
     return "".join(ch for ch in unicodedata.normalize("NFKD", text) if ord(ch) < 65536)
 
 def chunk_text_by_tokens(text: str, max_tokens=800):
@@ -24,19 +21,14 @@ def chunk_text_by_tokens(text: str, max_tokens=800):
     Splits text into chunks of up to 'max_tokens' tokens (approx).
     We use the DistilBart tokenizer to ensure we do not exceed model limits.
     """
-    # Clean the text
     cleaned = clean_text(text)
-    # Encode the entire text into token IDs
     input_ids = tokenizer.encode(cleaned, truncation=False, add_special_tokens=False)
     
-    # We'll slice the input_ids in chunks of 'max_tokens'
     for i in range(0, len(input_ids), max_tokens):
         chunk_ids = input_ids[i : i + max_tokens]
-        # Decode back to text so we can feed it to the summarization pipeline
         yield tokenizer.decode(chunk_ids, skip_special_tokens=True)
 
 class Node:
-    # Represents a single step in the pipeline
     def __init__(self, name, func):
         self.name = name
         self.func = func
@@ -45,7 +37,6 @@ class Node:
         return self.func(input_data)
 
 class Graph:
-    # Orchestrates multiple nodes in sequence
     def __init__(self, nodes):
         self.nodes = nodes
 
@@ -67,7 +58,6 @@ def extract_metadata_func(text: str):
 
     text_clean = clean_text(text)
     
-    # Basic QA for title, authors, date
     title_ans = qa_pipe({"question": "What is the title of the paper?", "context": text_clean})
     authors_ans = qa_pipe({"question": "Who are the authors?", "context": text_clean})
     date_ans = qa_pipe({"question": "When was the paper published?", "context": text_clean})
@@ -119,7 +109,6 @@ def generate_summary_and_keywords_func(data: dict):
 
     data["global_summary"] = " ".join(all_summaries)
 
-    # Simple frequency-based keyword extraction
     words = re.findall(r"\w+", data["full_text"].lower())
     freq = {}
     for w in words:
@@ -136,21 +125,15 @@ def run_pipeline_on_pdf(pdf_path: str, extract_text_func) -> dict:
     """
     multiprocessing.freeze_support()
 
-    # 1) Extract text
     raw_text = extract_text_func(pdf_path)
 
-    # 2) Create nodes
     metadata_node = Node("metadata_node", extract_metadata_func)
     findings_node = Node("findings_node", extract_findings_and_methodology_func)
     summary_keywords_node = Node("summary_keywords_node", generate_summary_and_keywords_func)
 
-    # 3) Create graph
     pipeline_graph = Graph([metadata_node, findings_node, summary_keywords_node])
 
-    # 4) Execute pipeline
     result = pipeline_graph.execute(raw_text)
-
-    # 5) Build final dict
     final_data = {
         "title": result["title"],
         "authors": result["authors"],
@@ -164,7 +147,6 @@ def run_pipeline_on_pdf(pdf_path: str, extract_text_func) -> dict:
 if __name__ == "__main__":
     from src.pdf_utils.extract import extract_text_from_pdf
 
-    # Example path
     pdf_path = "C:/Users/julio/Documents/challenge/challenge-two/papers/paper1.pdf"
     final_data = run_pipeline_on_pdf(pdf_path, extract_text_from_pdf)
     print("\nPipeline Output:\n", final_data)
