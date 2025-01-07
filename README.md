@@ -71,7 +71,7 @@ Ensure you have the following installed and configured on your system:
 
         ```bash
         pip install -e .
-         ```
+         
 ## Set up Google Cloud Credentials
 
     1. **Install the Google Cloud SDK**  
@@ -82,7 +82,7 @@ Ensure you have the following installed and configured on your system:
     - Run the following command to initialize Google Cloud:  
         ```bash
         gcloud init
-        ```
+        
     - This command will guide you through:  
         - Logging in with your Google account.  
         - Selecting the appropriate Google Cloud project.
@@ -92,12 +92,12 @@ Ensure you have the following installed and configured on your system:
     - Locate the line where the BigQuery table is defined:
         ```python
         table_id = "your_project_id.your_dataset_id.your_table_name"
-        ```
+        
     - Replace `your_project_id` with your Google Cloud project ID.  
         For example:  
         ```python
         table_id = "my-project-id.paper_summarize.papers"
-        ```
+        
 
     4. **Create a Service Account Key**  
     - Go to the [Google Cloud Console](https://console.cloud.google.com/).  
@@ -125,13 +125,13 @@ Ensure you have the following installed and configured on your system:
 
     ```bash
     python src/main.py
-     ```
+     
 ## Limitations and Known Issues
 ### Prototype Limitations
 
-        The language model (LLM) used is not fine-tuned for academic papers. As a result:
-            Metadata (e.g., title, authors, and publication date) may be incomplete or inaccurate.
-            Summaries and extracted findings may not fully capture the essence of the paper.
+    The language model (LLM) used is not fine-tuned for academic papers. As a result:
+    - Metadata (e.g., title, authors, and publication date) may be incomplete or inaccurate.
+    - Summaries and extracted findings may not fully capture the essence of the paper.
 
 
 
