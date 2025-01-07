@@ -66,7 +66,6 @@ Ensure you have the following installed and configured on your system:
 
 To install the required dependencies, run the following command in the root directory of the project:
 
-    ```bash
     pip install -e .
          
 
@@ -91,7 +90,6 @@ To install the required dependencies, run the following command in the root dire
 - Open the `main.py` file in the `src` directory.
 - Locate the line where the BigQuery table is defined:
 
-    ```python
     table_id = "your_project_id.your_dataset_id.your_table_name"
         
 
