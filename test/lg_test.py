@@ -9,7 +9,7 @@ def test_pipeline_on_pdf():
     Basic integration test: ensures the pipeline runs on a real PDF
     and returns the keys we expect in the final dictionary.
     """
-    pdf_path = r"C:\Users\jnv77\Documents\Astrafy\challenge-two\papers\paper1.pdf"
+    pdf_path = "../papers/paper1.pdf"
     assert os.path.isfile(pdf_path), f"Test PDF not found at {pdf_path}"
 
     result = run_pipeline_on_pdf(pdf_path, extract_text_from_pdf)

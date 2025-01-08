@@ -131,6 +131,6 @@ To execute the application, run the following command:
 The language model (LLM) used is not fine-tuned for academic papers. As a result:
     - Metadata (e.g., title, authors, and publication date) may be incomplete or inaccurate.
     - Summaries and extracted findings may not fully capture the essence of the paper.
-
+This is a prototype developed using only a single paper as input. If you wish to analyze a different paper, you will need to update the paper's file path in the app accordingly.
 
 

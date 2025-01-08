@@ -39,7 +39,7 @@ def ensure_table_exists(client, table_id):
         print(f"Table {created.full_table_id} created successfully.")
 
 def main():
-    pdf_path = r"C:\Users\julio\Documents\challenge\challenge-two\papers\paper1.pdf"
+    pdf_path = "./papers/paper1.pdf"
 
     # BigQuery identifiers
     table_id = "horizontal-veld-446811-b8.paper_summarize1.papers"
